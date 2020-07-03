@@ -19,28 +19,36 @@ namespace test.scripts
             string name = LCD.Rows[select].Cells[0].Value.ToString();
              string Count = LCD.Rows[select].Cells[2].Value.ToString();
             string place = LCD.Rows[select].Cells[3].Value.ToString();
+
+
             if (place == "Склад")
                 Form1.tabl = "All_warehouse";
              if (place=="Магазин")
                 Form1.tabl = "Shop";
-            string sql = "UPDATE "+Form1.tabl+" SET Action=True WHERE Name LIKE '"+name+"' AND Value LIKE'"+Count+"'";
-            if(Count != "" && name != "")
-            {
-                using (MySqlConnection connection = new MySqlConnection(Form1.connection))
+            if (place != "Продан") 
+            { 
+                string sql = "UPDATE "+Form1.tabl+" SET Action=True WHERE Name LIKE '"+name+"' AND Value LIKE'"+Count+"'";
+                if(Count != "" && name != "")
                 {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand(sql, connection);
-                    command.ExecuteNonQuery();
-                    connection.Close();
+                    using (MySqlConnection connection = new MySqlConnection(Form1.connection))
+                    {
+                        connection.Open();
+                        MySqlCommand command = new MySqlCommand(sql, connection);
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                    Form1.tabl = old;
+                    loadMain.Load();
                 }
-                Form1.tabl = old;
-                loadMain.Load();
+                else
+                {
+                    MessageBox.Show("Вы выбрали пустое поле");
+                }
             }
             else
             {
-                MessageBox.Show("Вы выбрали пустое поле");
+                MessageBox.Show("Нельзя принять проданное");
             }
-           
         }
     }
 }

@@ -13,11 +13,11 @@ namespace test.scripts
         static public TextBox nameP,Value;
         static public ComboBox Company, NameS;
         static public Label las;
-        static public string cost;
+   
         static public void end()
         {
-            string action = "Продан";
-           string sql = "INSERT INTO Sales (NamePersonal, Name, Company, Value, Action) VALUES ('" + nameP.Text+"', '"+NameS.Text+"', '"+Company.Text+"', '"+Value.Text+"', '"+action+"')";
+            string Place = "Продан";
+           string sql = "INSERT INTO Sales (NamePersonal, Name, Company, Value, Place) VALUES ('" + nameP.Text+"', '"+NameS.Text+"', '"+Company.Text+"', '"+Value.Text+"', '"+ Place+"')";
             int core = Convert.ToInt32(Value.Text);
             int qu = Convert.ToInt32(las.Text);
             int be = qu- core ;

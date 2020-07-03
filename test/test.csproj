@@ -60,6 +60,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting.Designer.cs">
+      <DependentUpon>Reporting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,7 @@
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
     <Compile Include="scripts\End_sale.cs" />
+    <Compile Include="scripts\Reports.cs" />
     <Compile Include="scripts\Sales_Items.cs" />
     <Compile Include="scripts\Add_Items.cs" />
     <Compile Include="scripts\Enter_Click.cs" />
@@ -88,6 +95,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reporting.resx">
+      <DependentUpon>Reporting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
     </EmbeddedResource>

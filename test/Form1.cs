@@ -79,7 +79,7 @@ namespace test
 
         void Sells(object sender, EventArgs e)
         {
-            if (tabl=="Shop") { 
+            
                 int select = dataGridView1.CurrentCell.RowIndex;
                 string Bo = dataGridView1.Rows[select].Cells[4].Value.ToString();
                 if (Bo == "True")
@@ -90,11 +90,7 @@ namespace test
                 {
                     MessageBox.Show("Нельзя продать товара который не принят");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Нельзя продавать со склада");
-            }
+          
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -112,6 +108,13 @@ namespace test
         private void button2_Click(object sender, EventArgs e)
         {
             Insert_Item.Items();
+            loadMain.Load();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form report = new Reporting();
+            report.Show();
         }
     }
 }

@@ -26,18 +26,25 @@ namespace test
             End_sale.nameP = textBox1;
             End_sale.Value = textBox2;
 
+            comboBox1.DisplayMember = "Name";
+            comboBox1.ValueMember = "Name";
+            comboBox2.DisplayMember = "Company";
+            comboBox2.ValueMember = "Company";
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+         Sales_Items.labs();
         }
 
         private void Sales_Load(object sender, EventArgs e)
         {
             Sales_Items.Combo1();
-            Sales_Items.Combo2();
-            Sales_Items.labs();
+            //Sales_Items.Combo2();
+            //Sales_Items.labs();
+
+
+    
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,6 +62,17 @@ namespace test
                 Sell.sale.Close();
                 loadMain.Load();
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Sales_Items.Combo2();
+        }
+
+       
+        private void comboBox2_TextChanged(object sender, EventArgs e)
+        {
+            //Sales_Items.labs();
         }
     }
 }

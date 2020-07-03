@@ -19,6 +19,7 @@ namespace test.scripts
             if (Form1.tabl == "All") { 
                 string sql = "SELECT Name, Company, Value, Place, Action FROM All_warehouse";
                 string sql1 = "SELECT Name, Company, Value, Place, Action FROM Shop";
+                string sales = "SELECT Name, Company, Value, Place FROM Sales";
                 using (MySqlConnection connection= new MySqlConnection(Form1.connection))
                 {
                     connection.Open();
@@ -28,21 +29,14 @@ namespace test.scripts
 
                     adapter.Fill(dt);
 
-              
+                    MySqlDataAdapter adapter1 = new MySqlDataAdapter(sql1, connection);
+
+                    adapter1.Fill(dt);
+
+                    MySqlDataAdapter adapter2 = new MySqlDataAdapter(sales, connection);
+                    adapter2.Fill(dt);
+
                     connection.Close();
-
-                }
-                using (MySqlConnection connection1 = new MySqlConnection(Form1.connection))
-                {
-                    connection1.Open();
-
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(sql1, connection1);
-             
-
-                    adapter.Fill(dt);
-
-
-                    connection1.Close();
 
                 }
             }
