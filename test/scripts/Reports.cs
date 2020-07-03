@@ -11,7 +11,9 @@ namespace test.scripts
 {
     class Reports
     {
+        static public bool ter = false;
         static public DataGridView LCD;
+        static public DataGridView LCD1;
         static public DataTable dt = new DataTable();
         static public void RPSale()
         {
@@ -31,9 +33,10 @@ namespace test.scripts
         }
 
 
-        static public void RPFilter_C()
+  
+        static public void RPAll_warehouse()
         {
-            string SQL = "SELECT NamePersonal, Name, Company, Value, Place FROM Sales WHERE Value< 100";
+            string SQL = "SELECT  Name, Company, Value, Place, Action FROM "+Reporting.namesBD+" WHERE Action="+ter+"";
             dt.Clear();
             using (MySqlConnection connection = new MySqlConnection(Form1.connection))
             {
@@ -44,7 +47,7 @@ namespace test.scripts
                 connection.Close();
             }
 
-            LCD.DataSource = dt;
+            LCD1.DataSource = dt;
         }
     }
 }

@@ -72,6 +72,7 @@
     <Compile Include="Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
+    <Compile Include="scripts\easy_Save.cs" />
     <Compile Include="scripts\End_sale.cs" />
     <Compile Include="scripts\Reports.cs" />
     <Compile Include="scripts\Sales_Items.cs" />
